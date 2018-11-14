@@ -1,0 +1,108 @@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Arial", sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: purple;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: green;
+        }
+
+        .topnav a.active {
+            background-color: #ffa480;
+            color: black;
+        }
+
+
+
+    </style>
+<body>
+<div class="navbar-header">
+    <a href="/" class="navbar-brand has-logo">
+        <img width="60" height="30" src="../images/logo.jpg">
+    </a>
+
+</div>
+<div class="topnav">
+    <a id="home" class="active" href="#home" onclick="">Home</a>
+    <a id="contact" href="#contact" onclick="">Contact</a>
+    <a id="about" href="#about" onclick="">About</a>
+
+    <li id="login" style="float:right"><a onclick="document.getElementById('id01').style.display='block'"class="active" href="#login">Log In</a></li>
+    <li id="log" style="float:right"><a onclick="document.getElementById('id02').style.display='block'"class="active" href="#singup">Sing Up</a></li>
+</div>
+
+<div id="id01" class="modal">
+
+    <form class="modal-content animate" action="text/javascript">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input id="btnNmae" type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input id="btnPassword" type="password" placeholder="Enter Password" name="psw" required>
+
+            <button id="btnLogin" type="submit">Login</button>
+            <label>
+                <input  type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>
+<div id="id02" class="modal">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="modal-content" action="text/javascript">
+        <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+            <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
