@@ -9,7 +9,6 @@ var logger = require('morgan');
 
 var app = express();
 
-
 let Category = {MANAGER:"Manager", WORKER:"Worker", CUSTOMER:"Customer", SUPPLIER:"Supplier"};
 
 
