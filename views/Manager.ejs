@@ -21,23 +21,27 @@
     <tbody>
         <tr>
             <td class="col-sm-4">
+                <input type="text" name="id" class="form-control" />
+            </td>
+            <td class="col-sm-4">
                 <input type="text" name="name" class="form-control" />
             </td>
             <td class="col-sm-4">
-                <input type="mail" name="mail"  class="form-control"/>
+                <input type="mail" name="category"  class="form-control"/>
             </td>
             <td class="col-sm-3">
-                <input type="text" name="phone"  class="form-control"/>
+                <input type="text" name="branchId"  class="form-control"/>
             </td>
              <td class="col-sm-3">
-                <input type="text" name="phone"  class="form-control"/>
+                <input type="text" name="userName"  class="form-control"/>
             </td>
              <td class="col-sm-3">
-                <input type="text" name="phone"  class="form-control"/>
+                <input type="text" name="password"  class="form-control"/>
             </td>
              <td class="col-sm-3">
-                <input type="text" name="phone"  class="form-control"/>
+                <input type="text" name="valid"  class="form-control"/>
             </td>
+            <td class="col-sm-2"><a class="deleteRow"></a>
             <td class="col-sm-2"><a class="deleteRow"></a>
 
             </td>
@@ -108,13 +112,6 @@ function putDataIntoField(users)
 function user(user){
     var newRow = $("<tr>");
         var cols = "";
-        id:302951108,
-        name:'Yosef',
-        category:Category.MANAGER,
-        branchId:123,
-        userName:'abc',
-        password:'Aa123456',
-        valid:true
         cols += '<td><input type="text" class="form-control" name="id' + counter + '"/></td>';
         id = id;
         cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
