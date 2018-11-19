@@ -10,10 +10,7 @@ var bodyParser = require('body-parser');
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 var app = express();
-<<<<<<< HEAD
 app.use(bodyParser.json());
-=======
->>>>>>> 0ec75b7da4eff506cad4b60dbbf2fc87516afbee
 
 // Shai
 
