@@ -1,8 +1,18 @@
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+
+
+    function navigation(name){
+    clearInterval();
+     $('main').load(name);
+     return false;
+ }
+</script>
+
+
     <style>
         body {
             margin: 0;
-            font-family: "Arial", sans-serif;
+            font-family: "Ariel", sans-serif;
         }
 
         .topnav {
@@ -32,7 +42,7 @@
 
 
     </style>
-<body>
+
 <div class="navbar-header">
     <a href="/" class="navbar-brand has-logo">
         <img width="60" height="30" src="../images/logo.jpg">
@@ -40,6 +50,7 @@
 
 </div>
 <div class="topnav">
+<<<<<<< HEAD
     <a id="home" class="active" href="#home" onclick="">Home</a>
     <a id="contact" href="#contact" onclick="">Contact</a>
     <a id="about" href="#about" onclick="">About</a>
@@ -47,11 +58,27 @@
 
     <li id="login" style="float:right"><a onclick="document.getElementById('id01').style.display='block'"class="active" href="#login">Log In</a></li>
     <li id="log" style="float:right"><a onclick="document.getElementById('id02').style.display='block'"class="active" href="#singup">Sing Up</a></li>
+=======
+    <a id="home" class="active" href='/' >Home</a>
+       <% links.forEach(function(link) { %>
+                <a id = <%= link.id %> href='#' onclick = "navigation('<%=link.id %>');" >
+                    <%= link.name %>
+                </a>
+        <% }); %>
+   
+
+    <a id="login" style="float:right" onclick="document.getElementById('id01').style.display='block'"class="active" href="#login">Log In</a>
+    <a id="log" style="float:right" onclick="document.getElementById('id02').style.display='block'"class="active" href="#singup">Sing Up</a>
+>>>>>>> 65e418871554fd9c184dc829858693a87c82ca4d
 </div>
 
 <div id="id01" class="modal">
 
+<<<<<<< HEAD
     <form class="modal-content animate" action="manager">
+=======
+    <form class="modal-content animate" action="text/javascript" method="POST">
+>>>>>>> 65e418871554fd9c184dc829858693a87c82ca4d
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
@@ -59,12 +86,12 @@
 
         <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input id="btnNmae" type="text" placeholder="Enter Username" name="uname" required>
+            <input id="btnNmae" type="text" placeholder="Enter Username" name="btnNmae" required>
 
             <label for="psw"><b>Password</b></label>
-            <input id="btnPassword" type="password" placeholder="Enter Password" name="psw" required>
+            <input id="btnPassword" type="password" placeholder="Enter Password" name="btnPassword" required>
 
-            <button id="btnLogin" type="submit">Login</button>
+            <button id="btnLogin" type="submit" onclick='onSubmit(event)'>Login</button>
             <label>
                 <input  type="checkbox" checked="checked" name="remember"> Remember me
             </label>
@@ -105,5 +132,5 @@
         </div>
     </form>
 </div>
-</body>
-</html>
+
+
