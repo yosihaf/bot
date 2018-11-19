@@ -55,9 +55,8 @@
 </table>
 </div>
 <script>
+        var counter = 0;
 $(document).ready(function () {
-    var counter = 0;
-
     $("#addrow").on("click", function () {
         var newRow = $("<tr>");
         var cols = "";
@@ -65,6 +64,7 @@ $(document).ready(function () {
         cols += '<td><input type="text" class="form-control" name="id' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="category' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="branchId' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="userName' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="password' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="valid' + counter + '"/></td>';
@@ -99,5 +99,40 @@ function calculateGrandTotal() {
         grandTotal += +$(this).val();
     });
     $("#grandtotal").text(grandTotal.toFixed(2));
+}
+
+function putDataIntoField(users)
+{
+    users.array.forEach(user)
+}
+function user(user){
+    var newRow = $("<tr>");
+        var cols = "";
+        id:302951108,
+        name:'Yosef',
+        category:Category.MANAGER,
+        branchId:123,
+        userName:'abc',
+        password:'Aa123456',
+        valid:true
+        cols += '<td><input type="text" class="form-control" name="id' + counter + '"/></td>';
+        id = id;
+        cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+        name = name;
+        cols += '<td><input type="text" class="form-control" name="category' + counter + '"/></td>';
+        category = category;
+        cols += '<td><input type="text" class="form-control" name="branchId' + counter + '"/></td>';
+        branchId = branchId
+        cols += '<td><input type="text" class="form-control" name="userName' + counter + '"/></td>';
+        userName = userName;
+        cols += '<td><input type="text" class="form-control" name="password' + counter + '"/></td>';
+        password = password;
+        cols += '<td><input type="text" class="form-control" name="valid' + counter + '"/></td>';
+        valid = valid;
+        cols += '<td><input type="button" class="ff btn btn-md btn-danger "  value="Updade"></td>';
+        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+        counter++;
 }
 </script>

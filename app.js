@@ -50,6 +50,7 @@ let users = [
         id:333222111,
         name:'Shay',
         category:Category.CUSTOMER ,
+        branchId:123,
         userName:'Shay' ,
         password:'abc',
         valid:false
@@ -58,6 +59,7 @@ let users = [
         id:123456789,
         name:'Moshe',
         category:Category.WORKER ,
+        branchId:123,
         userName:'Moshe' ,
         password:'Aa123456',
         valid:true
@@ -66,6 +68,7 @@ let users = [
         id:987654321,
         name:'levi',
         category:Category.CUSTOMER ,
+        branchId:123,
         userName:'levi' ,
         password:'Aa123456',
         valid:true
@@ -115,7 +118,9 @@ app.get('/', function(req, res) {
 });
 
 app.get('/manager', function(req, res) {
-    res.render('Manager');
+    var users = users;
+    var myJson = JSON.stringify(users);
+    res.render('Manager',{users:users});	
 });
 
 
