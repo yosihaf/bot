@@ -3,12 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+
+
 
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
 var app = express();
-
+app.use(bodyParser.json());
 
 let Category = {MANAGER:"Manager", WORKER:"Worker", CUSTOMER:"Customer", SUPPLIER:"Supplier"};
 
@@ -16,7 +19,22 @@ let Category = {MANAGER:"Manager", WORKER:"Worker", CUSTOMER:"Customer", SUPPLIE
 let branches = [ {   id:  123 ,name:"jerusalem Flowers",  active: true , city:'jerusalem' },
     {  id:  456 ,name:"raanana Flowers",  active: false, city:'raanana'}];
 
-
+    function showLinks(category){
+        sendLinks = [];
+        switch (category){
+            case Category.MANAGER:
+                sendLinks.push(links[0]);
+            case Category.WORKER:
+                sendLinks.push(links[1]);
+            case Category.CUSTOMER:
+            case Category.SUPPLIER:
+                sendLinks.push(links[2]);
+            default:
+                sendLinks.push(links[3]);
+                sendLinks.push(links[4]);
+        }
+        return sendLinks;
+    }
 let users = [
     {
         id:302951108,
@@ -58,20 +76,68 @@ app.set('view engine', 'ejs');
 
 //app.use(logger('dev'));
 //app.use(express);
-//app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 
+let links = [
+	{
+		name: "Branch Management",
+		id: "branchManagement"
+	},
+	{
+		name: "Users Management",
+		id: "userManagement"
+	},
+	{
+		name: "catalog",
+		id: "catalog"
+	},
+	{
+		name: "About",
+		id: "about"
+	},
+	{
+		name: "Conact Us",
+		id: "conactUs"
+	}
+];
 
 
 
 app.get('/', function(req, res) {
-    res.render('home');
+    sendLinks = [];
+	sendLinks.push(links[3]);
+    sendLinks.push(links[4]);
+	res.render('home',{links:sendLinks});
 });
 
 
-app.post('/about', function(req, res){
+app.get('/about', function(req, res){
     res.render('about');
+});
+
+app.post('/login', function(req, res) 
+{
+	let userName = req.body.userName;
+	let password = req.body.password;
+	let userExist = false;
+	let isManager = 0;
+    let sendLinks = [];
+    
+	users.forEach(function(user){
+		if(user.userName == userName && user.password == password && user.valid == true){
+			if(user.category === Category.MANAGER)
+				isManager = 1;
+			userExist = true;
+			sendLinks = showLinks(user.category);
+			return;
+		}
+	});
+    res.json({userExist:userExist, links:sendLinks, isManager:isManager});
+
+
+    
 });
 
 app.listen(8000);
