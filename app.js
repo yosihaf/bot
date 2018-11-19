@@ -57,6 +57,13 @@ let users = [
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+bodyParser = require('body-parser');
+
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(logger('dev'));
 //app.use(express);
 //app.use(express.urlencoded({ extended: false }));
@@ -68,6 +75,10 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/', function(req, res) {
     res.render('home');
+});
+
+app.get('/manager', function(req, res) {
+    res.render('Manager');
 });
 
 
